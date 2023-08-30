@@ -6,6 +6,7 @@ import Container from "@/components/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { skills } from "@/res/skills";
+import { education } from "@/res/education";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -61,6 +62,20 @@ export default function Home() {
                 </li>
               </ul>
             </div>
+          </Container>
+        </section>
+
+        <section id="education" className="mt-16">
+          <Container>
+            <h2 className="text-2xl font-bold mb-4">Education</h2>
+            <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {education.map((education, i) => <li className="p-4 rounded-md shadow-md transition-colors cursor-pointer hover:bg-slate-700" key={i}>
+                <div>
+                  <h6 className="inline-block md:block font-bold md:mt-2 mb-2">{education.degree}</h6>
+                </div>
+                <p className="text-sm text-slate-500">{education.description}</p>
+              </li>)}
+            </ul>
           </Container>
         </section>
       </main>

@@ -5,6 +5,10 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import { Montserrat } from "next/font/google";
 import { Metadata } from "next";
 import Link from "next/link";
+import Container from "@/components/Container";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 config.autoAddCss = false;
 const mont = Montserrat({ subsets: ["latin"] });
@@ -30,21 +34,41 @@ export default function RootLayout({
           mont.className
         )}
       >
-        <nav>
-          <div className="container h-16 px-8 mx-auto max-w-full flex justify-between items-center">
+        <nav className="fixed top-0 left-0 w-full h-16 backdrop-blur-md z-10">
+          <div className="container w-full h-full px-8 mx-auto max-w-full flex justify-between items-center">
             <Link href="/" className="font-bold">Eshwin Rio</Link>
-            <ul>
+            <ul className="text-sm">
               <li>
                 <Link href="/" className="font-medium hover:underline">Home</Link>
               </li>
             </ul>
           </div>
         </nav>
+
+        <div className="h-16" />
         
         {children}
 
-        <footer>
-
+        <footer className="bg-slate-700 py-8 mt-16">
+          <div className="container px-8 mx-auto max-w-full">
+            <h6 className="font-bold text-2xl">Eshwin Rio</h6>
+            <p className="text-sm mb-4">Kitchener, ON N2H 0C7 🍁</p>
+            <div className="flex gap-4 mb-4">
+              <Link href="https://github.com/eshwinrio" target="_blank">
+                <FontAwesomeIcon icon={faGithub} size="lg" />
+              </Link>
+              <Link href="https://www.linkedin.com/in/eshwin-rio-b64a29129" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} size="lg" />
+              </Link>
+              <Link href="mailto:riopinto487@gmail.com" target="_blank">
+                <FontAwesomeIcon icon={faEnvelope} size="lg" />
+              </Link>
+              <Link href="https://www.hoyolab.com/accountCenter/postList?id=196611072" target="_blank">
+                <FontAwesomeIcon icon={faGamepad} size="lg" />
+              </Link>
+            </div>
+            <p className="text-xs">&copy; 2023 Eshwin Rio</p>
+          </div>
         </footer>
 
       </body>
