@@ -25,7 +25,7 @@ export default function Home() {
         </Container>
       </header>
 
-      <main>
+      <main className="my-16">
         <section id="skills">
           <Container>
             <h2 className="text-2xl font-bold mb-4">Skills</h2>

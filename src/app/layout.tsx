@@ -43,8 +43,10 @@ export default function RootLayout({
         
         {children}
 
-        <footer>
-
+        <footer className="bg-slate-200 text-slate-950 dark:bg-slate-700 dark:text-slate-50">
+          <div className="container py-8 mx-auto max-w-4xl">
+            <p className="text-sm text-slate-300">© 2023 Eshwin Rio</p>
+          </div>
         </footer>
 
       </body>
