@@ -1,3 +1,4 @@
+import JsonLdInjector from "@/lib/jsonld-injector";
 import PortfolioThemeProvider from "@/lib/theme";
 import Header from "@/ui/header";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
@@ -17,6 +18,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
+                <JsonLdInjector />
                 <AppRouterCacheProvider>
                     <PortfolioThemeProvider>
                         <Header />
