@@ -1,7 +1,8 @@
 "use client";
 
-import { OpenInNew } from "@mui/icons-material";
+import ArticleIcon from "@mui/icons-material/Article";
 import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
@@ -20,7 +21,7 @@ const SectionIntroduction: FC = () => {
     return (
         <Section component="section">
             <Container maxWidth="md">
-                <Box sx={{ mb: 1 }}>
+                <Box sx={{ mb: 2 }}>
                     <Typography variant="overline" textTransform="none" gutterBottom>Hello visitor ✌️</Typography>
                     <Typography component="h1" variant="h3" gutterBottom lineHeight={0.9}>
                         <Box component="span" color="GrayText">I&apos;m</Box> Eshwin Rio<br />
@@ -35,12 +36,11 @@ const SectionIntroduction: FC = () => {
                     </Typography>
                 </Box>
                 <Stack direction="row" alignItems="center" spacing={1} color="Highlight">
-                    <Typography component="span" variant="body1" display="flex" alignItems="center" sx={{ color: theme => theme.palette.secondary.dark }}>
-                        <Box component={Link} href="https://docs.google.com/document/d/1PzizUfVycO_FnsR-FnMThzuCfHAH3-qX4_d0MXr37XU/edit?usp=sharing" target="_blank" sx={{ textDecoration: "none", color: "inherit" }}>
-                            Résumé
-                        </Box>
-                        &nbsp;<OpenInNew fontSize="inherit" color="inherit" />
-                    </Typography>
+                    <Chip
+                        label="Résumé" icon={<ArticleIcon />}
+                        component={Link} href="https://docs.google.com/document/d/1PzizUfVycO_FnsR-FnMThzuCfHAH3-qX4_d0MXr37XU/edit?usp=sharing" target="_blank" 
+                        clickable
+                    />
                 </Stack>
             </Container>
         </Section >
