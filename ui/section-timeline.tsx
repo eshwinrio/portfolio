@@ -1,10 +1,12 @@
 import dayjs from "@/lib/dayjs";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import SchoolIcon from "@mui/icons-material/School";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import WorkIcon from "@mui/icons-material/Work";
 import Timeline from "@mui/lab/Timeline";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
@@ -12,8 +14,9 @@ import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 import { FC } from "react";
-import ExperienceCard, { TimelineEntry } from "./experience-card";
+import { TimelineEntry } from "./experience-card";
 
 
 const timeline: Array<TimelineEntry> = [
@@ -67,8 +70,20 @@ const SectionTimeline: FC = () => {
             <Container maxWidth="md">
                 <Typography component="h3" variant="h4">Timeline</Typography>
                 <Timeline position="right">
+                    <TimelineItem sx={{ "&:before": { display: "none" } }}>
+                        <TimelineOppositeContent sx={{ flex: 0, flexBasis: "25%", m: "auto 0" }} />
+                        <TimelineSeparator>
+                            <TimelineConnector />
+                            <TimelineDot color="primary">
+                                <TravelExploreIcon />
+                            </TimelineDot>
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Image src="https://media1.tenor.com/m/ffN-es3aN5cAAAAd/peepokc-kcpeepo.gif" alt="Looking for jobs" width={256} height={256} />
+                        </TimelineContent>
+                    </TimelineItem>
                     {timeline.map((experience, index) => (
-                        <TimelineItem key={index} sx={{ "&:before": { display: "none" } }}>
+                        <TimelineItem key={index}>
                             <TimelineOppositeContent sx={{ flex: 0, flexBasis: "25%", m: "auto 0" }}>
                                 {experience.start.format("MMM YYYY")}
                                 <Typography variant="body2" color="GrayText">{dayjs.duration(experience.start.diff()).humanize(true)}</Typography>
@@ -92,6 +107,18 @@ const SectionTimeline: FC = () => {
                             </TimelineContent>
                         </TimelineItem>
                     ))}
+                    <TimelineItem>
+                        <TimelineOppositeContent sx={{ flex: 0, flexBasis: "25%", m: "auto 0" }} />
+                        <TimelineSeparator>
+                            <TimelineConnector />
+                            <TimelineDot color="primary">
+                                <QuestionMarkIcon />
+                            </TimelineDot>
+                        </TimelineSeparator>
+                        <TimelineContent sx={{ my: 2 }}>
+                            <Image src="https://media1.tenor.com/m/73_DXIRhADQAAAAd/i-have-no-memory-of-it-number-five.gif" alt="I don't remember" width={256} height={256} />
+                        </TimelineContent>
+                    </TimelineItem>
                 </Timeline>
             </Container>
         </Box>

@@ -1,12 +1,12 @@
 import SectionIntroduction from "@/ui/section-introduction";
 import SectionProjects from "@/ui/section-projects";
 import SectionTimeline from "@/ui/section-timeline";
-import Container from "@mui/material/Container";
+import Container, { ContainerProps } from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import { FC } from "react";
 
-const Separator: FC = () => (
-    <Container maxWidth="md" sx={{ py: 8 }}>
+const Separator: FC<ContainerProps> = props => (
+    <Container maxWidth="md" {...props}>
         <Divider />
     </Container>
 );
@@ -16,8 +16,9 @@ export default function Home() {
         <main>
             <SectionIntroduction />
             <SectionTimeline />
-            <Separator />
+            <Separator sx={{ py: 8 }} />
             <SectionProjects />
+            <Separator sx={{ pt: 8, pb: 2 }} />
         </main>
     );
 }

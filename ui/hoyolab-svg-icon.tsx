@@ -1,9 +1,9 @@
-import SvgIcon from "@mui/material/SvgIcon";
+import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 import { FC } from "react";
 
-const HoyoLabIcon: FC = () => {
+const HoyoLabIcon: FC<SvgIconProps> = props => {
     return (
-        <SvgIcon viewBox="0 0 55 56">
+        <SvgIcon viewBox="0 0 55 56" {...props}>
             <g clipPath="url(#clip0_5_2)">
                 <path d="M40.243 42.89L42.264 49.636C42.742 51.389 44.55 52.422 46.303 51.944C48.056 51.466 49.089 49.658 48.611 47.905L46.59 41.159" fill="#5259A8" />
                 <path d="M14.046 11.42C14.365 12.588 15.57 13.277 16.738 12.959L26.235 10.278C27.403 9.95902 28.092 8.75402 27.774 7.58602C27.455 6.41802 26.25 5.72902 25.082 6.04702L15.585 8.72802C14.416 9.04702 13.727 10.252 14.046 11.42Z" fill="#5259A8" fillOpacity="0.8" />

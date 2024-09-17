@@ -1,5 +1,6 @@
 import JsonLdInjector from "@/lib/jsonld-injector";
 import PortfolioThemeProvider from "@/lib/theme";
+import Footer from "@/ui/footer";
 import Header from "@/ui/header";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
@@ -69,6 +70,7 @@ export default function RootLayout({
                     <PortfolioThemeProvider>
                         <Header />
                         {children}
+                        <Footer />
                     </PortfolioThemeProvider>
                 </AppRouterCacheProvider>
             </body>
