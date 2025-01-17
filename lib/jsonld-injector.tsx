@@ -12,9 +12,9 @@ export interface JsonLdInjectorProps {
 // TODO: Migrate hardcoded values to env values
 const JsonLdInjector: FC<JsonLdInjectorProps> = ({
     context = "https://schema.org",
-    type = "organization",
+    type = "Person",
     url = "https://eshwinrio.vercel.app",
-    logo = "https://eshwinrio.vercel.app/raiden-yae-01.jpg",
+    logo = "https://eshwinrio.vercel.app/raiden-chibi.png",
     sameAs = [
         "https://www.linkedin.com/in/eshwinrio/",
         "https://github.com/eshwinrio/",
