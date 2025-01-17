@@ -1,14 +1,14 @@
 "use client";
 
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
-import { alpha, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Raleway } from "next/font/google";
 import { createContext, FC, PropsWithChildren, useContext, useState } from "react";
 
 const raleway = Raleway({ subsets: ["latin"], display: "swap" });
 
 export const DRAWER_WIDTH = 280;
-export const BORDER_RADIUS = 4;
+export const BORDER_RADIUS = 8;
 
 export interface PortfolioThemeProps {
   toggleColorMode: () => void;
@@ -23,38 +23,38 @@ const PortfolioThemeContext = createContext<PortfolioThemeProps>({
 export const useThemeContext = () => useContext(PortfolioThemeContext);
 
 const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
-    const [mode, setMode] = useState<PaletteMode>("dark");
+    const [mode, setMode] = useState<PaletteMode>("light");
     const toggleColorMode = setMode.bind(this, (prevMode) => (prevMode === "light" ? "dark" : "light"));
 
     const theme = createTheme({
         palette: {
             mode,
             background: {
-                default: mode === "light" ? "#F5F5F5" : "#1E1B1D",
-                paper: mode === "light" ? "#FFF" : "#030303",
+                default: mode === "light" ? "#FFE5D9" : "#4E342E", // Updated light mode background color
+                paper: mode === "light" ? "#FFFFFF" : "#5D4037",
             },
             text: {
-                primary: mode === "light" ? "#1E1B1D" : "#FFF",
-                secondary: mode === "light" ? "#6750A4" : "#CCC2DC",
-                disabled: mode === "light" ? "#1E1B1D" : "#999999",
+                primary: mode === "light" ? "#212121" : "#FFFFFF",
+                secondary: mode === "light" ? "#757575" : "#B0BEC5",
+                disabled: mode === "light" ? "#BDBDBD" : "#757575",
             },
             primary: {
-                main: "#6750A4",
-                light: "#65558F",
-                dark: "#D0BCFE",
-                contrastText: "#fff",
+                main: "#03A9F4",
+                light: "#B3E5FC",
+                dark: "#0288D1",
+                contrastText: "#FFFFFF",
             },
             secondary: {
-                main: "#958DA5",
-                light: "#625B71",
-                dark: "#CCC2DC",
-                contrastText: "#fff",
+                main: "#FF4081",
+                light: "#F8BBD0",
+                dark: "#C51162",
+                contrastText: "#FFFFFF",
             },
             error: {
-                main: "#E46962",
-                light: "#B3261E",
-                dark: "#F2B8B5",
-                contrastText: "#fff",
+                main: "#F44336",
+                light: "#E57373",
+                dark: "#D32F2F",
+                contrastText: "#FFFFFF",
             },
         },
         breakpoints: {
@@ -87,15 +87,6 @@ const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
                         boxShadow: "none",
                         backdropFilter: "saturate(120%) blur(12px)",
                     }
-                }
-            },
-            MuiCard: {
-                styleOverrides: {
-                    root: ({ theme }) => ({
-                        borderRadius: BORDER_RADIUS,
-                        backgroundColor: alpha(theme.palette.background.default, 0.6),
-                        backdropFilter: "saturate(120%) blur(7px)",
-                    })
                 }
             },
             MuiLink: {
