@@ -13,9 +13,9 @@ import SocialButtonsStack from "./social-buttons-stack";
 
 const SectionIntroduction: FC = () => {
     return (
-        <Box component="section" sx={{ py: 12, backgroundColor: "background.paper" }}>
+        <Box component="section" sx={{ backgroundImage: "url(/rb_2148413572.png)", backgroundColor: "background.paper", backgroundSize: "cover" }}>
             <Toolbar />
-            <Container>
+            <Container sx={{ py: 12 }}>
                 <Grid2 container spacing={2}>
                     <Grid2 md={6}>
                         <Box sx={{ mb: 2 }}>
