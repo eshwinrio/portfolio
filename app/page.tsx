@@ -1,6 +1,6 @@
 import SectionIntroduction from "@/ui/section-introduction";
 import SectionProjects from "@/ui/section-projects";
-import SectionTimeline from "@/ui/section-timeline";
+import CareerTimeline from "@/ui/section-career-timeline";
 import Container, { ContainerProps } from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import { FC } from "react";
@@ -16,7 +16,7 @@ export default function Home() {
     return (
         <main>
             <SectionIntroduction />
-            <SectionTimeline />
+            <CareerTimeline />
             <SectionProjects />
             <Separator sx={{ pt: 8, pb: 2 }} />
         </main>
