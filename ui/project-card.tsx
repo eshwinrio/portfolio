@@ -29,7 +29,7 @@ interface ProjectCardProps extends Omit<CardProps, "children"> {
 
 const ProjectCard: FC<ProjectCardProps> = ({ data, media, width, height, ...props }) => {
     return (
-        <Card elevation={0} {...props}>
+        <Card elevation={16} {...props}>
             <CardActionArea LinkComponent={Link} href={data.link} target="_blank">
                 <Box sx={{ px: 2, pt: 2 }}>
                     <Image

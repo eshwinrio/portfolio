@@ -9,12 +9,12 @@ import StyledText from "./styled-text";
 
 const SectionProjects: FC = () => {
     return (
-        <Box id="projects" component="section">
+        <Box id="projects" component="section" sx={{ py: 16 }}>
             <Container>
                 <StyledText variant="h4" textAlign="center" fontWeight="bold" sx={{ mb: 4 }}>
                     Showcase
                 </StyledText>
-                <Grid2 container spacing={2} sx={{ mt: 4 }}>
+                <Grid2 container spacing={4} sx={{ mt: 4 }}>
                     <Grid2 xs={12} sm={6} md={4}>
                         <ProjectCard
                             data={{

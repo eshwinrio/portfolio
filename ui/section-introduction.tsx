@@ -1,4 +1,5 @@
 import ArticleIcon from "@mui/icons-material/Article";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
@@ -8,18 +9,26 @@ import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
 import SocialButtonsStack from "./social-buttons-stack";
 
-const SectionIntroduction: FC = () => {
+
+export default function SectionIntroduction() {
     return (
-        <Box component="section" sx={{ backgroundImage: "url(/rb_2148413572.png)", backgroundColor: "background.paper", backgroundSize: "cover" }}>
+        <Box component="section">
             <Toolbar />
             <Container sx={{ py: 12 }}>
                 <Grid2 container spacing={2}>
                     <Grid2 md={6}>
                         <Box sx={{ mb: 2 }}>
-                            <Image src="/raiden-chibi.png" alt="Raiden Shogun Chibi" width={164} height={164} />
+                            <Avatar sx={{ width: 164, height: 164 }}>
+                                <Image
+                                    src="/20211225_172819-PFP.jpg"
+                                    alt="Portrait of Eshwin Rio Pinto"
+                                    width={164} height={164}
+                                    style={{ width: "100%", height: "100%" }}
+                                    aria-label="Portrait of Eshwin Rio Pinto"
+                                />
+                            </Avatar>
                         </Box>
                         <Typography component="h1" variant="h3" gutterBottom lineHeight={0.9}>
                             <Box component="small" fontWeight="bold" display="block">Eshwin Rio</Box>
@@ -28,8 +37,8 @@ const SectionIntroduction: FC = () => {
                     </Grid2>
                     <Grid2 md={6}>
                         <Typography variant="h5" gutterBottom>
-                            Full-Stack Developer<br />
-                            <Box component="span" color="text.secondary">based in Kitchener-Waterloo🍁</Box>
+                            <Box component="b">Full-Stack Developer</Box><br />
+                            <Box component="span" color="text.secondary">based in <Box component="b">Kitchener-Waterloo</Box>🍁</Box>
                         </Typography>
                         <Typography component="p" variant="body1" color="GrayText">
                             I build applications for the modern web.
@@ -38,7 +47,7 @@ const SectionIntroduction: FC = () => {
                             <Chip
                                 label="Résumé" icon={<ArticleIcon />}
                                 sx={{ cursor: "pointer", pl: .5 }}
-                                component={Link} href="https://docs.google.com/document/d/1PzizUfVycO_FnsR-FnMThzuCfHAH3-qX4_d0MXr37XU/edit?usp=sharing" target="_blank"
+                                component={Link} href="https://docs.google.com/document/d/e/2PACX-1vR8g87K8vtK3zN2TXzYXFZ-gyooEQJSpmKchpQchbl8DgTO4zbXkNm-_wGv3og4LyPbYydLw4G1ESa7/pub" target="_blank"
                                 clickable
                             />
                             <SocialButtonsStack />
@@ -49,5 +58,3 @@ const SectionIntroduction: FC = () => {
         </Box>
     );
 }
-
-export default SectionIntroduction;
