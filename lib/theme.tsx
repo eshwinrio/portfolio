@@ -30,11 +30,11 @@ const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
         palette: {
             mode,
             background: {
-                default: mode === "light" ? "#F6F6F6" : "#4E342E", // dull white for light mode
-                paper: mode === "light" ? "#FFFFFF" : "#424242", // bright as paper for light mode
+                default: mode === "light" ? "#F6F6F6" : "#2E2E2E", // darker background for dark mode
+                paper: mode === "light" ? "#FFFFFF" : "#1E1E1E", // darker paper for dark mode
             },
             text: {
-                primary: mode === "light" ? "#212121" : "#FFFFFF",
+                primary: mode === "light" ? "#212121" : "#E0E0E0", // lighter text for dark mode
                 secondary: mode === "light" ? "#757575" : "#B0BEC5",
                 disabled: mode === "light" ? "#BDBDBD" : "#757575",
             },

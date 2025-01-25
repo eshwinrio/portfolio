@@ -41,7 +41,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ data, media, width, height, ...prop
                 </Box>
                 <CardContent>
                     <Typography variant="h6" component="h3" fontWeight="bold">{data.title}</Typography>
-                    <Typography variant="body2" color="GrayText">{data.description}</Typography>
+                    <Typography variant="body2" color="text.secondary">{data.description}</Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
