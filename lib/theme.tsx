@@ -3,7 +3,7 @@
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Raleway } from "next/font/google";
-import { createContext, FC, PropsWithChildren, useContext, useState } from "react";
+import { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 
 const raleway = Raleway({ subsets: ["latin"], display: "swap" });
 
@@ -11,8 +11,8 @@ export const DRAWER_WIDTH = 280;
 export const BORDER_RADIUS = 8;
 
 export interface PortfolioThemeProps {
-  toggleColorMode: () => void;
-  readonly mode: PaletteMode;
+    toggleColorMode: () => void;
+    readonly mode: PaletteMode;
 }
 
 const PortfolioThemeContext = createContext<PortfolioThemeProps>({
@@ -23,8 +23,19 @@ const PortfolioThemeContext = createContext<PortfolioThemeProps>({
 export const useThemeContext = () => useContext(PortfolioThemeContext);
 
 const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
-    const [mode, setMode] = useState<PaletteMode>("light");
-    const toggleColorMode = setMode.bind(this, (prevMode) => (prevMode === "light" ? "dark" : "light"));
+    const [mode, setMode] = useState<PaletteMode>(() => {
+        if (typeof window === "undefined") return "light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+    });
+    const toggleColorMode = () => setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleChange = () => setMode(mediaQuery.matches ? "dark" : "light");
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
 
     const theme = createTheme({
         palette: {
