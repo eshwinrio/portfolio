@@ -3,7 +3,7 @@
 import { createTheme, CssBaseline, PaletteMode } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Raleway } from "next/font/google";
-import { createContext, FC, PropsWithChildren, useContext, useState } from "react";
+import { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 
 const raleway = Raleway({ subsets: ["latin"], display: "swap" });
 
@@ -11,8 +11,8 @@ export const DRAWER_WIDTH = 280;
 export const BORDER_RADIUS = 8;
 
 export interface PortfolioThemeProps {
-  toggleColorMode: () => void;
-  readonly mode: PaletteMode;
+    toggleColorMode: () => void;
+    readonly mode: PaletteMode;
 }
 
 const PortfolioThemeContext = createContext<PortfolioThemeProps>({
@@ -23,18 +23,26 @@ const PortfolioThemeContext = createContext<PortfolioThemeProps>({
 export const useThemeContext = () => useContext(PortfolioThemeContext);
 
 const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
-    const [mode, setMode] = useState<PaletteMode>("light");
-    const toggleColorMode = setMode.bind(this, (prevMode) => (prevMode === "light" ? "dark" : "light"));
+    const [mode, setMode] = useState<PaletteMode>("dark");
+    const toggleColorMode = () => setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const handleChange = () => setMode(mediaQuery.matches ? "dark" : "light");
+        mediaQuery.addEventListener("change", handleChange);
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
 
     const theme = createTheme({
         palette: {
             mode,
             background: {
-                default: mode === "light" ? "#F6F6F6" : "#4E342E", // dull white for light mode
-                paper: mode === "light" ? "#FFFFFF" : "#424242", // bright as paper for light mode
+                default: mode === "light" ? "#F6F6F6" : "#2E2E2E", // darker background for dark mode
+                paper: mode === "light" ? "#FFFFFF" : "#1E1E1E", // darker paper for dark mode
             },
             text: {
-                primary: mode === "light" ? "#212121" : "#FFFFFF",
+                primary: mode === "light" ? "#212121" : "#E0E0E0", // lighter text for dark mode
                 secondary: mode === "light" ? "#757575" : "#B0BEC5",
                 disabled: mode === "light" ? "#BDBDBD" : "#757575",
             },
