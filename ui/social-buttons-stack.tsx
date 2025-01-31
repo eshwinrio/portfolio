@@ -1,22 +1,45 @@
-import { GitHub, LinkedIn } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import Stack, { StackProps } from "@mui/material/Stack";
 import Link from "next/link";
-import React from "react";
-import HoyoLabIcon from "./hoyolab-svg-icon"; // Assuming you have a custom icon component
+import { FC } from "react";
+import HoyoLabIcon from "./icons/Hoyolab";
 
 
-const SocialButtonsStack: React.FC = () => {
+const socialLinks = [
+    {
+        href: "https://www.linkedin.com/in/eshwinrio/",
+        icon: <LinkedInIcon />
+    },
+    {
+        href: "https://github.com/eshwinrio/",
+        icon: <GitHubIcon />
+    },
+    {
+        href: "https://www.hoyolab.com/accountCenter/postList?id=196611072",
+        icon: <HoyoLabIcon />
+    }
+];
+
+export interface SocialButtonsStackProps extends StackProps {
+    readonly iconButtonProps?: IconButtonProps;
+}
+
+const SocialButtonsStack: FC<SocialButtonsStackProps> = ({ iconButtonProps, ...stackProps }) => {
     return (
-        <Stack direction="row">
-            <IconButton LinkComponent={Link} href="https://www.linkedin.com/in/eshwinrio/" target="_blank">
-                <LinkedIn />
-            </IconButton>
-            <IconButton LinkComponent={Link} href="https://github.com/eshwinrio/" target="_blank">
-                <GitHub />
-            </IconButton>
-            <IconButton LinkComponent={Link} href="https://www.hoyolab.com/accountCenter/postList?id=196611072" target="_blank">
-                <HoyoLabIcon />
-            </IconButton>
+        <Stack direction="row" {...stackProps}>
+            {socialLinks.map((link, index) => (
+                <IconButton
+                    key={index}
+                    component={Link}
+                    href={link.href}
+                    target="_blank"
+                    {...iconButtonProps}
+                >
+                    {link.icon}
+                </IconButton>
+            ))}
         </Stack>
     );
 };

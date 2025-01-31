@@ -1,6 +1,5 @@
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -75,29 +74,25 @@ const TimelineItem: FC<{ item: { alt: string, src: string, primary: string, seco
     </ListItem>
 );
 
-export default function CareerTimeline() {
+export default function ProfessionalJourney() {
     return (
-        <Box id="timeline" component="section" sx={{ py: 8 }}>
-            <Container>
-                <Grid2 container spacing={2}>
-                    <Grid2 md={6}>
-                        <Typography component="h2" variant="h5" fontWeight="bold">Experience</Typography>
-                        <List sx={{ mt: 2 }}>
-                            {experience.map((item, index) => (
-                                <TimelineItem key={index} item={item} />
-                            ))}
-                        </List>
-                    </Grid2>
-                    <Grid2 md={6}>
-                        <Typography component="h2" variant="h5" fontWeight="bold" color="text.secondary">Education</Typography>
-                        <List sx={{ mt: 2 }}>
-                            {education.map((item, index) => (
-                                <TimelineItem key={index} item={item} />
-                            ))}
-                        </List>
-                    </Grid2>
-                </Grid2>
-            </Container>
-        </Box>
+        <Grid2 container spacing={2}>
+            <Grid2 md={6}>
+                <Typography component="h2" variant="h5" fontWeight="bold">Experience</Typography>
+                <List sx={{ mt: 2 }}>
+                    {experience.map((item, index) => (
+                        <TimelineItem key={index} item={item} />
+                    ))}
+                </List>
+            </Grid2>
+            <Grid2 md={6}>
+                <Typography component="h2" variant="h5" fontWeight="bold" color="text.secondary">Education</Typography>
+                <List sx={{ mt: 2 }}>
+                    {education.map((item, index) => (
+                        <TimelineItem key={index} item={item} />
+                    ))}
+                </List>
+            </Grid2>
+        </Grid2>
     );
 }

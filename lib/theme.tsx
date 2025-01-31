@@ -23,10 +23,7 @@ const PortfolioThemeContext = createContext<PortfolioThemeProps>({
 export const useThemeContext = () => useContext(PortfolioThemeContext);
 
 const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
-    const [mode, setMode] = useState<PaletteMode>(() => {
-        if (typeof window === "undefined") return "light";
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-    });
+    const [mode, setMode] = useState<PaletteMode>("dark");
     const toggleColorMode = () => setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
 
     useEffect(() => {
