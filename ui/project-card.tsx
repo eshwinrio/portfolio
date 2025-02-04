@@ -3,39 +3,47 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Dayjs } from "dayjs";
 import Link from "next/link";
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 
 
-export interface Project {
+interface ProjectCardProps extends CardProps {
+    readonly href?: string;
     readonly title: string;
-    readonly description: string;
-    readonly link: string;
-    readonly logo?: string;
-    readonly role: string;
-    readonly start: Dayjs;
-    readonly end?: Dayjs;
-    tech?: any;
+    readonly subtitle: string;
 }
 
-interface ProjectCardProps extends Omit<CardProps, "children"> {
-    readonly data: Project;
-    readonly media: ReactNode;
-}
+const ConditionalActionsArea: FC<PropsWithChildren<{ href?: string }>> = ({ children, href }) => {
+    return href ? (
+        <CardActionArea LinkComponent={Link} href={href} target="_blank">
+            {children}
+        </CardActionArea>
+    ) : (
+        <>{children}</>
+    );
+};
 
-const ProjectCard: FC<ProjectCardProps> = ({ data, media, ...props }) => {
+const ProjectCard: FC<ProjectCardProps> = ({
+    children,
+    href,
+    subtitle,
+    title,
+    ...props
+}) => {
     return (
-        <Card elevation={16} {...props}>
-            <CardActionArea LinkComponent={Link} href={data.link} target="_blank">
-                <CardMedia>
-                    {media}
-                </CardMedia>
+        <Card elevation={16} title={title} {...props}>
+            <ConditionalActionsArea href={href}>
+                <CardMedia>{children}</CardMedia>
                 <CardContent>
-                    <Typography variant="h6" component="h3" fontWeight="bold" noWrap sx={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>{data.title}</Typography>
-                    <Typography variant="body2" color="text.secondary">{data.description}</Typography>
+                    <Typography variant="body1" component="h3" fontWeight="bold" noWrap
+                        sx={{
+                            textOverflow: "ellipsis",
+                            overflow: "hidden",
+                        }}
+                    >{title}</Typography>
+                    <Typography variant="body2" color="text.secondary">{subtitle}</Typography>
                 </CardContent>
-            </CardActionArea>
+            </ConditionalActionsArea>
         </Card>
     );
 };
