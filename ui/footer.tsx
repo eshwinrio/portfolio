@@ -14,8 +14,11 @@ export default function Footer() {
             <Container>
                 <Grid2 container spacing={2}>
                     <Grid2 xs={12} sm={6} sx={{ textAlign: { xs: "center", sm: "left" } }}>
+                        <Typography variant="body2" color="text.secondary" fontWeight="bold" gutterBottom>
+                            &copy; Eshwin Rio | Full Stack Developer | 2025
+                        </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            &copy; Eshwin Rio | Full Stack Developer | 2021
+                            Build version: {process.env.NEXT_PUBLIC_BUILD_VERSION}
                         </Typography>
                     </Grid2>
                     <Grid2 xs={12} sm={6} sx={{ textAlign: { xs: "center", sm: "right" } }}>
