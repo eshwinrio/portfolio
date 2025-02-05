@@ -23,7 +23,7 @@ const PortfolioThemeContext = createContext<PortfolioThemeProps>({
 export const useThemeContext = () => useContext(PortfolioThemeContext);
 
 const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
-    const [mode, setMode] = useState<PaletteMode>("dark");
+    const [mode, setMode] = useState<PaletteMode>(new Date().getHours() > 6 && new Date().getHours() < 18 ? "light" : "dark");
     const toggleColorMode = () => setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
 
     useEffect(() => {
