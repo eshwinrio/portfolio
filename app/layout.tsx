@@ -4,6 +4,7 @@ import Footer from "@/ui/footer";
 import Header from "@/ui/header";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react"
 
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
+                <Analytics />
                 <JsonLdInjector />
                 <AppRouterCacheProvider>
                     <PortfolioThemeProvider>
