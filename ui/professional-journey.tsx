@@ -9,12 +9,12 @@ import THEMUSEUMIcon from "./icons/THEMUSEUM";
 
 export default function ProfessionalJourney() {
     return (
-        <>
+        <Box>
             <Typography component="h2" variant="h5" fontWeight="bold" textAlign="center">
                 <Box fontWeight="bold" display="block">Companies & Organizations</Box>
                 <Box component="small" color="text.secondary">I&apos;ve worked with</Box>
             </Typography>
-            <Grid2 container justifyContent="center" alignItems="center" rowSpacing={4} columnSpacing={8} sx={{ mt: 4 }}>
+            <Grid2 container justifyContent="center" alignItems="center" rowSpacing={4} columnSpacing={8} sx={{ mt: 4, mb: 0.5 }}>
                 <Grid2 xs={12} md="auto">
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <Tooltip title="Datamatics Digital Ltd.">
@@ -33,6 +33,6 @@ export default function ProfessionalJourney() {
                     </Tooltip>
                 </Grid2>
             </Grid2>
-        </>
+        </Box>
     );
 }

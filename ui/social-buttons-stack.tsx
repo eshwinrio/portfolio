@@ -10,15 +10,18 @@ import HoyoLabIcon from "./icons/Hoyolab";
 const socialLinks = [
     {
         href: "https://www.linkedin.com/in/eshwinrio/",
-        icon: <LinkedInIcon />
+        icon: <LinkedInIcon />,
+        title: "LinkedIn"
     },
     {
         href: "https://github.com/eshwinrio/",
-        icon: <GitHubIcon />
+        icon: <GitHubIcon />,
+        title: "GitHub"
     },
     {
         href: "https://www.hoyolab.com/accountCenter/postList?id=196611072",
-        icon: <HoyoLabIcon />
+        icon: <HoyoLabIcon />,
+        title: "HoyoLab"
     }
 ];
 
@@ -34,6 +37,7 @@ const SocialButtonsStack: FC<SocialButtonsStackProps> = ({ iconButtonProps, ...s
                     key={index}
                     component={Link}
                     href={link.href}
+                    title={link.title}
                     target="_blank"
                     {...iconButtonProps}
                 >

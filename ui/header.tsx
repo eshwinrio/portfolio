@@ -12,7 +12,7 @@ const Header: FC<AppBarProps> = () => {
         <AppBar position="fixed">
             <Container>
                 <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
-                    <Brand />
+                    <Brand sx={{ display: { xs: "none", sm: "block" }}} />
                     <MyTZTimeViewer />
                     <PaletteModeToggleIconButton />
                 </Toolbar>

@@ -10,22 +10,22 @@ import Toolbar from "@mui/material/Toolbar";
 export default function Home() {
     return (
         <main>
-            <Section id="introduction" title="Introduction">
+            <Section id="introduction">
                 <Toolbar />
                 <Container sx={{ py: 12 }}>
                     <ProfileOverview />
                 </Container>
             </Section>
 
-            <Section id="career-timeline" title="Career Timeline" sx={{ py: 8 }}>
+            <Section id="career-timeline" sx={{ py: 8, backgroundColor: "background.paper" }}>
                 <Container>
                     <ProfessionalJourney />
                 </Container>
             </Section>
 
-            <Section id="projects" title="Projects" sx={{ py: 8 }}>
+            <Section id="projects" sx={{ py: 8 }}>
                 <Container>
-                    <StyledText variant="h4" textAlign="center" fontWeight="bold" sx={{ mb: 4 }}>
+                    <StyledText component="h2" variant="h5" textAlign="center" fontWeight="bold" sx={{ mb: 4 }}>
                         Showcase
                     </StyledText>
                     <SectionProjects />
