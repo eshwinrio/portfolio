@@ -9,12 +9,12 @@ import ProjectCard from "./project-card";
 
 const SectionProjects: FC = () => {
     return (
-        <Grid2 container spacing={4}>
-            <Grid2 xs={12} sm={6} md={4}>
-                <ProjectCard title="@genshin-toolkit/parser" subtitle= "NPM parsing library" href="https://www.npmjs.com/package/@genshin-toolkit/parser">
+        <Grid2 container spacing={2}>
+            <Grid2 xs={6} md={4}>
+                <ProjectCard title="@genshin-toolkit/parser" subtitle="NPM parsing library" href="https://www.npmjs.com/package/@genshin-toolkit/parser">
                     <Box sx={{
                         position: "relative",
-                        aspectRatio: "auto 1920 /1080",
+                        aspectRatio: "auto 1920 / 1080",
                         width: "100%", height: "auto",
                         backgroundColor: "#CB3837",
                         color: "#fff",
@@ -23,8 +23,8 @@ const SectionProjects: FC = () => {
                     </Box>
                 </ProjectCard>
             </Grid2>
-            <Grid2 xs={12} sm={6} md={4}>
-                <ProjectCard title="Kaya HR" subtitle= "Interactive Dashboard" href="https://github.com/eshwinrio/kaya-hr">
+            <Grid2 xs={6} md={4}>
+                <ProjectCard title="Kaya HR" subtitle="Interactive Dashboard" href="https://github.com/eshwinrio/kaya-hr">
                     <Box sx={{
                         position: "relative",
                         aspectRatio: "auto 1920 /1080",
@@ -37,7 +37,7 @@ const SectionProjects: FC = () => {
                 </ProjectCard>
             </Grid2>
             <Grid2 xs={12} sm={6}>
-                <ProjectCard title="Razor Console" subtitle= "Interactive Dashboard" href="https://console.razordigitalsolutions.com">
+                <ProjectCard title="Razor Console" subtitle="Interactive Dashboard" href="https://console.razordigitalsolutions.com">
                     <Image
                         src="/console-razordigitalsolutions.jpeg"
                         alt="Razor Admin Panel"
@@ -47,7 +47,7 @@ const SectionProjects: FC = () => {
                 </ProjectCard>
             </Grid2>
             <Grid2 xs={12} sm={6}>
-                <ProjectCard title="Razor Digital Solutions" subtitle= "Business Website" href="https://razordigitalsolutions.com">
+                <ProjectCard title="Razor Digital Solutions" subtitle="Business Website" href="https://razordigitalsolutions.com">
                     <Image
                         src="/razordigitalsolutions.jpeg"
                         alt="Razor Digital Solutions"
