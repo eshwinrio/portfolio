@@ -35,13 +35,14 @@ const ProjectCard: FC<ProjectCardProps> = ({
             <ConditionalActionsArea href={href}>
                 <CardMedia>{children}</CardMedia>
                 <CardContent>
-                    <Typography variant="body1" component="h3" fontWeight="bold" noWrap
-                        sx={{
-                            textOverflow: "ellipsis",
-                            overflow: "hidden",
-                        }}
-                    >{title}</Typography>
-                    <Typography variant="body2" color="text.secondary">{subtitle}</Typography>
+                    <Typography variant="body1" component="h3" fontWeight="bold" noWrap sx={{
+                        textOverflow: "ellipsis",
+                        overflow: "hidden",
+                    }}>{title}</Typography>
+                    <Typography variant="body2" color="text.secondary" noWrap sx={{
+                        textOverflow: "ellipsis",
+                        overflow: "hidden",
+                    }}>{subtitle}</Typography>
                 </CardContent>
             </ConditionalActionsArea>
         </Card>

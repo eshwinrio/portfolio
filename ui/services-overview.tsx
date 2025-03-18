@@ -1,141 +1,98 @@
-import Card, { CardProps } from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
-import List from "@mui/material/List";
-import { SvgIconProps } from "@mui/material/SvgIcon";
+"use client";
+
+import { useTheme } from "@mui/material";
+import Box from "@mui/material/Box";
+import Paper, { PaperProps } from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import { FC, ReactElement } from "react";
-import AwsIcon from "./icons/AWS";
-import BashIcon from "./icons/Bash";
-import BootstrapIcon from "./icons/Bootstrap";
-import Css3Icon from "./icons/Css3";
-import DockerIcon from "./icons/Docker";
-import ExpressJsIcon from "./icons/ExpressJs";
-import FigmaIcon from "./icons/Figma";
-import GitIcon from "./icons/Git";
-import GithubActionsIcon from "./icons/GithubActions";
-import Html5Icon from "./icons/Html5";
-import JavaIcon from "./icons/Java";
-import JavascriptIcon from "./icons/Javascript";
-import JQueryIcon from "./icons/jQuery";
-import KotlinIcon from "./icons/Kotlin";
-import MaterialUIIcon from "./icons/MaterialUI";
-import NextJsIcon from "./icons/NextJs";
-import NodeJsIcon from "./icons/NodeJs";
-import PythonIcon from "./icons/Python";
-import ReactJsIcon from "./icons/ReactJs";
-import TailwindIcon from "./icons/Tailwind";
-import TypescriptIcon from "./icons/Typescript";
-import VSCodeIcon from "./icons/VSCode";
-import TechStackTray from "./TechStackTray";
+import { FC, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
 
 
-export interface SkillMetrics {
-    readonly title: string;
-    readonly icon: ReactElement<SvgIconProps, "svg">;
-    readonly level: "beginner" | "intermediate" | "advanced";
+interface VideoCardProps extends PaperProps {
+    readonly sources: Array<ReactElement<HTMLVideoElement>>;
+    readonly children?: ReactNode;
 }
 
-export interface Service {
-    readonly title: string;
-    readonly skills: Record<string, SkillMetrics[]>;
-}
+const VideoCard: FC<VideoCardProps> = ({ sources, children, ...props }) => {
+    const ref = useRef<HTMLVideoElement>(null);
+    const [isActive, setIsActive] = useState(false);
 
-const srvDevelopment: Service = {
-    title: "Languages & Runtimes",
-    skills: {
-        "Languages & Runtimes": [
-            { icon: <NodeJsIcon />, title: "Node.js", level: "advanced" },
-            { icon: <TypescriptIcon />, title: "TypeScript", level: "advanced" },
-            { icon: <JavascriptIcon />, title: "JavaScript", level: "advanced" },
-            { icon: <PythonIcon />, title: "Python", level: "advanced" },
-            { icon: <KotlinIcon />, title: "Kotlin", level: "intermediate" },
-            { icon: <BashIcon />, title: "Bash", level: "intermediate" },
-            { icon: <JavaIcon />, title: "Java", level: "advanced" },
-            { icon: <Html5Icon />, title: "HTML5", level: "advanced" },
-        ],
-        "Frameworks & IDEs": [
-            { icon: <ReactJsIcon />, title: "React.js", level: "advanced" },
-            { icon: <NextJsIcon />, title: "Next.js", level: "advanced" },
-            { icon: <ExpressJsIcon />, title: "Express.js", level: "advanced" },
-            { icon: <JQueryIcon />, title: "jQuery", level: "advanced" },
-            { icon: <VSCodeIcon />, title: "VS Code", level: "advanced" },
-        ],
-    },
-};
+    useEffect(() => {
+        const video = ref.current;
+        if (!video) return;
+        if (isActive) video.play();
+        else video.pause();
+    }, [isActive]);
 
-const srvDesign: Service = {
-    title: "Design Libraries & Tools",
-    skills: {
-        "Editors/Tools": [
-            { icon: <FigmaIcon />, title: "Figma", level: "advanced" },
-        ],
-        "UI Libraries": [
-            { icon: <MaterialUIIcon />, title: "Material-UI", level: "advanced" },
-            { icon: <TailwindIcon />, title: "Tailwind CSS", level: "advanced" },
-            { icon: <Css3Icon />, title: "CSS3", level: "advanced" },
-            { icon: <BootstrapIcon />, title: "Bootstrap", level: "advanced" },
-        ],
-    },
-};
-
-const srvDeployment: Service = {
-    title: "Deployment & Version Control",
-    skills: {
-        "Deployment platforms": [
-            { icon: <DockerIcon />, title: "Docker", level: "advanced" },
-            { icon: <AwsIcon />, title: "AWS", level: "intermediate" },
-        ],
-        "Version Control & CI-CD": [
-            { icon: <GitIcon />, title: "Git", level: "advanced" },
-            { icon: <GithubActionsIcon />, title: "GitHub Actions", level: "advanced" },
-        ],
-    },
-};
-
-interface CardSkillMetricsProps extends CardProps {
-    readonly service: Service;
-}
-
-const CardSkillMetrics: FC<CardSkillMetricsProps> = ({ service, ...props }) => {
     return (
-        <Card elevation={0} {...props}>
-            <CardHeader
-                title={service.title}
-                titleTypographyProps={{ variant: "body1", fontWeight: "bold" }}
+        <Paper
+            elevation={0}
+            {...props}
+            onMouseEnter={setIsActive.bind(null, true)}
+            onMouseLeave={setIsActive.bind(null, false)}
+            sx={{ ...props.sx, position: "relative" }}
+        >
+            <Box
+                component="video"
+                ref={ref}
+                sx={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit" }}
+                muted
+                loop
+            >
+                {sources}
+            </Box>
+            <Typography
+                variant="h6"
+                component="span"
                 sx={{
-                    "& .MuiCardHeader-content": {
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    },
+                    position: "absolute",
+                    bottom: 16, right: 16,
+                    backdropFilter: "blur(7px)",
+                    py: 0.5, px: 1,
+                    borderRadius: "inherit",
+                    fontWeight: "bold",
+                    color: "inherit"
                 }}
-            />
-            <CardContent sx={{ p: "0px !important" }}>
-                <List dense disablePadding>
-                    {Object.entries(service.skills).map(([title, skills], i, array) => (
-                        <TechStackTray divider={i < array.length - 1} key={i} title={title} skills={skills} />
-                    ))}
-                </List>
-            </CardContent>
-        </Card>
-    )
-}
+            >
+                {children}
+            </Typography>
+        </Paper>
+    );
+};
 
 const ServicesOverview: FC = () => {
+    const { palette } = useTheme();
     return (
-        <Grid2 container spacing={4}>
-            <Grid2 xs={12} md={4}>
-                <CardSkillMetrics service={srvDevelopment} />
+        <Grid2 container justifyContent="center" spacing={2}>
+            <Grid2 xs={6} sm={4}>
+                <VideoCard sx={{ color: palette.common.white }} sources={[
+                    <source key={0} src="/bedrijfsfilmspecialist.nl/2887463-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 320px)" />,
+                    <source key={1} src="/bedrijfsfilmspecialist.nl/2887463-sd_640_360_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
+                    <source key={2} src="/bedrijfsfilmspecialist.nl/2887463-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
+                ]}>
+                    Web Dev
+                </VideoCard>
             </Grid2>
-            <Grid2 xs={12} sm={6} md={4}>
-                <CardSkillMetrics service={srvDesign} />
+            <Grid2 xs={6} sm={4}>
+                <VideoCard sx={{ color: palette.common.white }} sources={[
+                    <source key={0} src="/campusproduction/8201290-sd_426_240_25fps.mp4" type="video/mp4" media="(min-width: 320px)" />,
+                    <source key={1} src="/campusproduction/8201290-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
+                    <source key={2} src="/campusproduction/8201290-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
+                ]}>
+                    Technical<br /><Box component="small">Support</Box>
+                </VideoCard>
             </Grid2>
-            <Grid2 xs={12} sm={6} md={4}>
-                <CardSkillMetrics service={srvDeployment} />
+            <Grid2 xs={6} sm={4}>
+                <VideoCard sx={{ color: palette.common.white }} sources={[
+                    <source key={0} src="/timamiroshnichenko/5377647-sd_426_240_25fps.mp4" type="video/mp4" media="(min-width: 320px)" />,
+                    <source key={1} src="/timamiroshnichenko/5377647-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
+                    <source key={2} src="/timamiroshnichenko/5377647-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
+                ]}>
+                    DevOps
+                </VideoCard>
             </Grid2>
         </Grid2>
     );
-}
+};
 
 export default ServicesOverview;
