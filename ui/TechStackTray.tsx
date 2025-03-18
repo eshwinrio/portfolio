@@ -15,7 +15,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Tooltip from "@mui/material/Tooltip";
 import { cloneElement, FC, useState } from "react";
-import { SkillMetrics } from "./services-overview";
+import { SkillMetrics } from "./skills-overview";
 
 
 export interface TechStackTrayProps extends ListItemProps {
@@ -36,14 +36,11 @@ const TechStackTray: FC<TechStackTrayProps> = ({ skills, ...props }) => {
                 <ListItemButton onClick={handleClickOpen}>
                     <ListItemText
                         primary={skills.map(({ icon, title }, i) => (
-                            <>
-                                <Tooltip key={i} title={title} arrow>
-                                    {cloneElement(icon, { fontSize: "inherit" })}
-                                </Tooltip>
-                                {i < totalItems - 1 && "  "}
-                            </>
+                            <Tooltip key={i} title={title} arrow sx={{ mr: 0.8}}>
+                                {cloneElement(icon, { fontSize: "inherit" })}
+                            </Tooltip>
                         ))}
-                        primaryTypographyProps={{ variant: "body1" }}
+                        primaryTypographyProps={{ variant: "body1", letterSpacing: 10 }}
                         secondary={props.title}
                     />
                 </ListItemButton>
