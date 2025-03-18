@@ -2,7 +2,7 @@
 
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+import Typography, { TypographyProps } from "@mui/material/Typography";
 import { FC, useState } from "react";
 
 
@@ -28,11 +28,10 @@ const LastNameBlock = styled(Box)<AnimationState>(({ theme, open }) => ({
 }));
 
 
-const Brand: FC = () => {
+const Brand: FC<TypographyProps> = (props) => {
     const [open, setOpen] = useState(false);
-
     return (
-        <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }} onMouseOver={setOpen.bind(null, true)} onMouseOut={setOpen.bind(null, false)}>
+        <Typography variant="h6" {...props} onMouseOver={setOpen.bind(null, true)} onMouseOut={setOpen.bind(null, false)}>
             <FirstNameBlock component="span" open={open}>Eshwin&nbsp;</FirstNameBlock>
             <LastNameBlock component="span" open={open}>Rio</LastNameBlock>
         </Typography>
