@@ -1,4 +1,6 @@
+import { BORDER_RADIUS } from "@/lib/theme";
 import Section from "@/ui/Section";
+import PersonalSectionNavigator from "@/ui/personal-section-navigator";
 import ProfessionalJourney from "@/ui/professional-journey";
 import ProfileOverview from "@/ui/profile-overview";
 import SectionProjects from "@/ui/section-projects";
@@ -7,7 +9,9 @@ import SkillsOverview from "@/ui/skills-overview";
 import StyledText from "@/ui/styled-text";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
+import Image from "next/image";
 
 
 export default function Home() {
@@ -58,6 +62,25 @@ export default function Home() {
                         Featured Work
                     </StyledText>
                     <SectionProjects />
+                </Container>
+            </Section>
+
+            <Section id="personal-page-navigator" sx={{
+                py: 8,
+                backgroundImage: "url(/doodles-7251441_1280.png)",
+                backgroundSize: "contain",
+                backgroundBlendMode: "overlay",
+                backgroundColor: "background.default",
+            }}>
+                <Container>
+                    <Stack alignItems="center" gap={2}>
+                        <StyledText component="div" variant="h6" textAlign="center" sx={{ p: 1, borderRadius: `${BORDER_RADIUS}px`, backdropFilter: "blur(3px)" }}>
+                            <Box fontWeight="bold" display="block">That’s a wrap on my professional journey!</Box>
+                            <Box component="small" color="text.secondary">Curious about my personal interests? Step into my world!</Box>
+                        </StyledText>
+                        <Image src="/739b9901eddcb2b4a990e9ea4219b77a.gif" width={64} height={64} alt="Fired up Mimo (HoyoLab Mascot)" />
+                        <PersonalSectionNavigator sx={{ backdropFilter: "blur(4px)" }} />
+                    </Stack>
                 </Container>
             </Section>
         </main>
