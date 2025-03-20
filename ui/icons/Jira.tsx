@@ -7,12 +7,12 @@ const JiraIcon: FC<SvgIconProps> = (props) => {
         <SvgIcon viewBox="0 0 128 128" {...props}>
             <defs>
                 <linearGradient id="jira-original-a" gradientUnits="userSpaceOnUse" x1="22.034" y1="9.773" x2="17.118" y2="14.842" gradientTransform="scale(4)">
-                    <stop offset=".176" stop-color="#0052CC" />
-                    <stop offset="1" stop-color="#2684FF" />
+                    <stop offset=".176" stopColor="#0052CC" />
+                    <stop offset="1" stopColor="#2684FF" />
                 </linearGradient>
                 <linearGradient id="jira-original-b" gradientUnits="userSpaceOnUse" x1="16.641" y1="15.564" x2="10.957" y2="21.094" gradientTransform="scale(4)">
-                    <stop offset=".176" stop-color="#0052CC" />
-                    <stop offset="1" stop-color="#2684FF" />
+                    <stop offset=".176" stopColor="#0052CC" />
+                    <stop offset="1" stopColor="#2684FF" />
                 </linearGradient>
             </defs>
             <path d="M108.023 16H61.805c0 11.52 9.324 20.848 20.847 20.848h8.5v8.226c0 11.52 9.328 20.848 20.848 20.848V19.977A3.98 3.98 0 00108.023 16zm0 0" fill="#2684FF" />
