@@ -25,7 +25,6 @@ export interface TechStackTrayProps extends ListItemProps {
 
 const TechStackTray: FC<TechStackTrayProps> = ({ skills, ...props }) => {
     // A state for dialog trigger
-    const totalItems = skills.length;
     const [open, setOpen] = useState(false);
     const handleClickOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -54,7 +53,7 @@ const TechStackTray: FC<TechStackTrayProps> = ({ skills, ...props }) => {
                 <DialogContent>
                     <Table>
                         <TableHead>
-                            <TableRow>
+                            <TableRow sx={{ "& th": { fontWeight: "bold" } }}>
                                 <TableCell colSpan={2}>Technology</TableCell>
                                 <TableCell>Exp Level</TableCell>
                             </TableRow>

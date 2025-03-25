@@ -2,6 +2,8 @@ import Card, { CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Chip, { ChipProps } from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import { FC, PropsWithChildren } from "react";
@@ -11,6 +13,7 @@ interface ProjectCardProps extends CardProps {
     readonly href?: string;
     readonly title: string;
     readonly subtitle: string;
+    readonly tags: ChipProps[];
 }
 
 const ConditionalActionsArea: FC<PropsWithChildren<{ href?: string }>> = ({ children, href }) => {
@@ -28,10 +31,11 @@ const ProjectCard: FC<ProjectCardProps> = ({
     href,
     subtitle,
     title,
+    tags,
     ...props
 }) => {
     return (
-        <Card elevation={16} title={title} {...props}>
+        <Card elevation={16} {...props}>
             <ConditionalActionsArea href={href}>
                 <CardMedia>{children}</CardMedia>
                 <CardContent>
@@ -43,6 +47,18 @@ const ProjectCard: FC<ProjectCardProps> = ({
                         textOverflow: "ellipsis",
                         overflow: "hidden",
                     }}>{subtitle}</Typography>
+                    <Stack direction="row" spacing={0.5} flexWrap="wrap" sx={{ marginTop: 1 }}>
+                        {tags && tags.map((tag, index) => (
+                            <Chip
+                                key={index}
+                                size="small"
+                                {...tag}
+                                sx={{ pl: 0.2, ...tag.sx }}
+                                aria-label={tag.label?.toString() || `Tag ${index + 1}`}
+                                role="listitem"
+                            />
+                        ))}
+                    </Stack>
                 </CardContent>
             </ConditionalActionsArea>
         </Card>
