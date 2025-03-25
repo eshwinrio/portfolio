@@ -14,7 +14,7 @@ export default function PersonalHome() {
                 <Toolbar />
                 <Container sx={{ height: "calc(100vh - calc(56px * 4))" }}>
                     <Stack alignItems="center" justifyContent="center" sx={{ height: "100%" }} gap={2}>
-                        <Image src="/cbd429e4aeb207be5ca385877731f117.gif" width={96} height={96} alt="Ganyu busy at coding" />
+                        <Image src="/cbd429e4aeb207be5ca385877731f117.gif" width={96} height={96} unoptimized alt="Ganyu busy at coding" />
                         <StyledText component="h2" variant="h6" textAlign="center">
                             <Box fontWeight="bold" display="block">Staging Content</Box>
                             <Box component="small" color="text.secondary">Please wait until the next release!</Box>

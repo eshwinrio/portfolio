@@ -1,4 +1,3 @@
-import { BORDER_RADIUS } from "@/lib/theme";
 import Section from "@/ui/Section";
 import PersonalSectionNavigator from "@/ui/personal-section-navigator";
 import ProfessionalJourney from "@/ui/professional-journey";
@@ -9,6 +8,7 @@ import SkillsOverview from "@/ui/skills-overview";
 import StyledText from "@/ui/styled-text";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
@@ -72,13 +72,15 @@ export default function Home() {
                 backgroundBlendMode: "overlay",
                 backgroundColor: "background.default",
             }}>
-                <Container>
+                <Container maxWidth="sm">
                     <Stack alignItems="center" gap={2}>
-                        <StyledText component="div" variant="h6" textAlign="center" sx={{ p: 1, borderRadius: `${BORDER_RADIUS}px`, backdropFilter: "blur(3px)" }}>
-                            <Box fontWeight="bold" display="block">That’s a wrap on my professional journey!</Box>
-                            <Box component="small" color="text.secondary">Curious about my personal interests? Step into my world!</Box>
-                        </StyledText>
-                        <Image src="/739b9901eddcb2b4a990e9ea4219b77a.gif" width={64} height={64} alt="Fired up Mimo (HoyoLab Mascot)" />
+                        <Paper variant="outlined" sx={{ p: 1, background: "transparent", backdropFilter: "blur(4px)" }}>
+                            <StyledText component="div" variant="h6" textAlign="center">
+                                <Box fontWeight="bold" display="block">That’s a wrap on my professional journey!</Box>
+                                <Box component="small" color="text.secondary">Curious about my personal interests? Step into my world!</Box>
+                            </StyledText>
+                        </Paper>
+                        <Image src="/739b9901eddcb2b4a990e9ea4219b77a.gif" width={64} height={64} unoptimized alt="Fired up Mimo (HoyoLab Mascot)" />
                         <PersonalSectionNavigator sx={{ backdropFilter: "blur(4px)" }} />
                     </Stack>
                 </Container>
