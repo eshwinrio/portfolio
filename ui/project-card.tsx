@@ -47,13 +47,12 @@ const ProjectCard: FC<ProjectCardProps> = ({
                         textOverflow: "ellipsis",
                         overflow: "hidden",
                     }}>{subtitle}</Typography>
-                    <Stack direction="row" spacing={0.5} flexWrap="wrap" sx={{ marginTop: 1 }}>
+                    <Stack direction="row" gap={0.5} flexWrap="wrap" sx={{ marginTop: 1 }}>
                         {tags && tags.map((tag, index) => (
                             <Chip
                                 key={index}
                                 size="small"
                                 {...tag}
-                                sx={{ pl: 0.2, ...tag.sx }}
                                 aria-label={tag.label?.toString() || `Tag ${index + 1}`}
                                 role="listitem"
                             />

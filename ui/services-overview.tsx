@@ -1,10 +1,11 @@
 "use client";
 
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper, { PaperProps } from "@mui/material/Paper";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { FC, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
+import Typography from "@mui/material/Typography";
 
 
 interface VideoCardProps extends PaperProps {
@@ -43,10 +44,11 @@ const VideoCard: FC<VideoCardProps> = ({ sources, children, ...props }) => {
             <Paper variant="outlined"
                 sx={{
                     position: "absolute",
-                    bottom: 16, right: 16,
+                    bottom: 0, right: 0,
                     background: "transparent",
                     backdropFilter: "blur(4px) brightness(0.5)",
                     py: 0.5, px: 1,
+                    m: 1,
                     color: "inherit",
                     textAlign: "end"
                 }}
@@ -67,7 +69,7 @@ const ServicesOverview: FC = () => {
                     <source key={1} src="/bedrijfsfilmspecialist.nl/2887463-sd_640_360_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
                     <source key={2} src="/bedrijfsfilmspecialist.nl/2887463-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
                 ]}>
-                    Web Dev
+                    <Typography>Web Dev</Typography>
                 </VideoCard>
             </Grid2>
             <Grid2 xs={6} sm={4}>
@@ -76,7 +78,7 @@ const ServicesOverview: FC = () => {
                     <source key={1} src="/campusproduction/8201290-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
                     <source key={2} src="/campusproduction/8201290-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
                 ]}>
-                    Technical Support
+                    <Typography>Technical Support</Typography>
                 </VideoCard>
             </Grid2>
             <Grid2 xs={6} sm={4}>
@@ -85,7 +87,7 @@ const ServicesOverview: FC = () => {
                     <source key={1} src="/timamiroshnichenko/5377647-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
                     <source key={2} src="/timamiroshnichenko/5377647-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
                 ]}>
-                    DevOps
+                    <Typography>DevOps</Typography>
                 </VideoCard>
             </Grid2>
         </Grid2>
