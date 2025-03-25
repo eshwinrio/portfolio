@@ -3,7 +3,14 @@ import Box from "@mui/material/Box";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import { FC } from "react";
-import NpmJsIcon from "./icons/NpmJs";
+import BunIcon from "./icons/Bun";
+import MaterialUIIcon from "./icons/MaterialUI";
+import NextJsIcon from "./icons/NextJs";
+import NodeJsIcon from "./icons/NodeJs";
+import OpenCVIcon from "./icons/OpenCV";
+import PostgresIcon from "./icons/Postgres";
+import PythonIcon from "./icons/Python";
+import RazorDigitalSolutionsIcon from "./icons/RazorDigitalSolutions";
 import ProjectCard from "./project-card";
 
 
@@ -11,23 +18,18 @@ const SectionProjects: FC = () => {
     return (
         <Grid2 container spacing={2}>
             <Grid2 xs={6} md={4}>
-                <ProjectCard title="@genshin-toolkit/parser" subtitle="NPM parsing library" href="https://www.npmjs.com/package/@genshin-toolkit/parser">
+                <ProjectCard
+                    title="Room Surveillance"
+                    subtitle="Motion activated video recorder"
+                    href="https://github.com/eshwinrio/room-surveillance"
+                    tags={[
+                        { label: "Python", icon: <PythonIcon fontSize="inherit" /> },
+                        { label: "OpenCV", icon: <OpenCVIcon fontSize="inherit" /> },
+                    ]}
+                >
                     <Box sx={{
                         position: "relative",
-                        aspectRatio: "auto 1920 / 1080",
-                        width: "100%", height: "auto",
-                        backgroundColor: "#CB3837",
-                        color: "#fff",
-                    }}>
-                        <NpmJsIcon fontSize="large" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
-                    </Box>
-                </ProjectCard>
-            </Grid2>
-            <Grid2 xs={6} md={4}>
-                <ProjectCard title="Kaya HR" subtitle="Interactive Dashboard" href="https://github.com/eshwinrio/kaya-hr">
-                    <Box sx={{
-                        position: "relative",
-                        aspectRatio: "auto 1920 /1080",
+                        aspectRatio: "auto 900 / 473",
                         width: "100%", height: "auto",
                         backgroundColor: "#24292E",
                         color: "#FFF",
@@ -36,23 +38,44 @@ const SectionProjects: FC = () => {
                     </Box>
                 </ProjectCard>
             </Grid2>
-            <Grid2 xs={12} sm={6}>
-                <ProjectCard title="Razor Console" subtitle="Interactive Dashboard" href="https://console.razordigitalsolutions.com">
-                    <Image
-                        src="/console-razordigitalsolutions.jpeg"
-                        alt="Razor Admin Panel"
-                        width={1920} height={1200}
-                        style={{ width: "100%", height: "auto" }}
-                    />
+            <Grid2 xs={6} md={4}>
+                <ProjectCard
+                    title="Genshin-Toolkit Parser"
+                    subtitle="Genshin Impact data parser"
+                    href="https://github.com/eshwinrio/genshin-toolkit-parser"
+                    tags={[
+                        { label: "Node.js", icon: <NodeJsIcon fontSize="inherit" /> },
+                        { label: "Bun", icon: <BunIcon fontSize="inherit" /> },
+                    ]}
+                >
+                    <Box sx={{
+                        position: "relative",
+                        aspectRatio: "auto 900 / 473",
+                        width: "100%", height: "auto",
+                        backgroundColor: "#24292E",
+                        color: "#FFF",
+                    }}>
+                        <GithubIcon fontSize="large" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
+                    </Box>
                 </ProjectCard>
             </Grid2>
-            <Grid2 xs={12} sm={6}>
-                <ProjectCard title="Razor Digital Solutions" subtitle="Business Website" href="https://razordigitalsolutions.com">
+            <Grid2 xs={6} md={4}>
+                <ProjectCard
+                    title="Razor Digital Solutions"
+                    subtitle="Business website"
+                    href="https://razordigitalsolutions.com"
+                    tags={[
+                        { label: "Next.js", icon: <NextJsIcon fontSize="inherit" /> },
+                        { label: "PostgreSQL", icon: <PostgresIcon fontSize="inherit" /> },
+                        { label: "MUI", icon: <MaterialUIIcon fontSize="inherit" /> },
+                    ]}
+                >
                     <Image
-                        src="/razordigitalsolutions.jpeg"
-                        alt="Razor Digital Solutions"
-                        width={1920} height={1200}
-                        style={{ width: "100%", height: "auto" }}
+                        src="/razor_digital_og_root.png"
+                        width={900}
+                        height={473}
+                        alt="Razor Digital brand banner"
+                        style={{ display: "block", width: "100%", height: "auto", }}
                     />
                 </ProjectCard>
             </Grid2>
