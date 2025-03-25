@@ -3,7 +3,6 @@
 import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Paper, { PaperProps } from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import { FC, ReactElement, ReactNode, useEffect, useRef, useState } from "react";
 
@@ -41,21 +40,19 @@ const VideoCard: FC<VideoCardProps> = ({ sources, children, ...props }) => {
             >
                 {sources}
             </Box>
-            <Typography
-                variant="h6"
-                component="span"
+            <Paper variant="outlined"
                 sx={{
                     position: "absolute",
                     bottom: 16, right: 16,
-                    backdropFilter: "blur(7px)",
+                    background: "transparent",
+                    backdropFilter: "blur(4px) brightness(0.5)",
                     py: 0.5, px: 1,
-                    borderRadius: "inherit",
-                    fontWeight: "bold",
-                    color: "inherit"
+                    color: "inherit",
+                    textAlign: "end"
                 }}
             >
                 {children}
-            </Typography>
+            </Paper>
         </Paper>
     );
 };
@@ -79,7 +76,7 @@ const ServicesOverview: FC = () => {
                     <source key={1} src="/campusproduction/8201290-sd_960_540_25fps.mp4" type="video/mp4" media="(min-width: 768px)" />,
                     <source key={2} src="/campusproduction/8201290-hd_1920_1080_25fps.mp4" type="video/mp4" media="(min-width: 1200px)" />,
                 ]}>
-                    Technical<br /><Box component="small">Support</Box>
+                    Technical Support
                 </VideoCard>
             </Grid2>
             <Grid2 xs={6} sm={4}>
