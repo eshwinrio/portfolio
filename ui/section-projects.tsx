@@ -10,7 +10,6 @@ import NodeJsIcon from "./icons/NodeJs";
 import OpenCVIcon from "./icons/OpenCV";
 import PostgresIcon from "./icons/Postgres";
 import PythonIcon from "./icons/Python";
-import RazorDigitalSolutionsIcon from "./icons/RazorDigitalSolutions";
 import ProjectCard from "./project-card";
 
 

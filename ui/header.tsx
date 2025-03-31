@@ -10,7 +10,7 @@ import PersonalModeExitIconButton from "./personal-mode-exit-iconButton";
 
 const Header: FC<AppBarProps> = () => {
     return (
-        <AppBar position="fixed">
+        <AppBar>
             <Toolbar>
                 <Grid2 container alignItems="center" sx={{ width: "100%" }}>
                     <Grid2 sm={4} sx={{ display: { xs: "none", sm: "block" } }}>
