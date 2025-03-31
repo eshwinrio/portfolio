@@ -11,6 +11,7 @@ export default function PersonalHomeSuspenseBoundary() {
                 src="/1fee910951f9c112afc5ef925bf1f82a.gif"
                 width={96} height={96}
                 alt="Ganyu riding a motorcycle"
+                unoptimized
             />
             <StyledText component="div" variant="h6" textAlign="center" lineHeight={1.15}>
                 <Box fontWeight="bold" display="block">Loading</Box>
