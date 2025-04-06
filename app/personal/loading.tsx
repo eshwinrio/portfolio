@@ -8,7 +8,7 @@ export default function PersonalHomeSuspenseBoundary() {
     return (
         <Stack component="main" justifyContent="center" alignItems="center" spacing={2} sx={{ height: "100vh" }}>
             <Image
-                src="/1fee910951f9c112afc5ef925bf1f82a.gif"
+                src="/images/stickers/0ef4fdeb-55c6-4e78-918f-4e8999cb0a93.gif"
                 width={96} height={96}
                 alt="Ganyu riding a motorcycle"
                 unoptimized

@@ -1,3 +1,4 @@
+import imageMap from "@/lib/image-map";
 import GithubIcon from "@mui/icons-material/GitHub";
 import Box from "@mui/material/Box";
 import Grid2 from "@mui/material/Unstable_Grid2";
@@ -70,10 +71,10 @@ const SectionProjects: FC = () => {
                     ]}
                 >
                     <Image
-                        src="/razor_digital_og_root.png"
-                        width={900}
-                        height={473}
-                        alt="Razor Digital brand banner"
+                        src={imageMap.razor_digital_solutions_og_art.path}
+                        width={imageMap.razor_digital_solutions_og_art.width}
+                        height={imageMap.razor_digital_solutions_og_art.height}
+                        alt={imageMap.razor_digital_solutions_og_art.alt}
                         style={{ display: "block", width: "100%", height: "auto", }}
                     />
                 </ProjectCard>
