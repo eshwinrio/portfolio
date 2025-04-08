@@ -39,14 +39,14 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
                 <Image key={i}
                     {...image}
                     alt={image.alt || "Image carousel"}
-                    objectFit="cover"
-                    layout="fill"
-                    objectPosition="top"
+                    fill
                     priority={i === 0}
                     style={{
                         ...image.style,
                         display: "block",
                         position: "absolute",
+                        objectFit: "cover",
+                        objectPosition: "top",
                         borderRadius: "inherit",
                         overflow: "hidden",
                         opacity: i === index ? 1 : 0,
