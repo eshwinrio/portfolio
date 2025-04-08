@@ -35,7 +35,6 @@ import PostmanIcon from "./icons/Postman";
 import PythonIcon from "./icons/Python";
 import ReactJsIcon from "./icons/ReactJs";
 import RedisIcon from "./icons/Redis";
-import ReduxIcon from "./icons/Redux";
 import SeleniumIcon from "./icons/Selenium";
 import SequelizeIcon from "./icons/Sequelize";
 import TailwindIcon from "./icons/Tailwind";
@@ -43,7 +42,7 @@ import TypescriptIcon from "./icons/Typescript";
 import UbuntuIcon from "./icons/Ubuntu";
 import VSCodeIcon from "./icons/VSCode";
 import WebpackIcon from "./icons/Webpack";
-import TechStackTray from "./TechStackTray";
+import TechStackTray from "./tech-stack-tray";
 
 
 export interface SkillMetrics {

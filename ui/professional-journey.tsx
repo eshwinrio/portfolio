@@ -8,7 +8,7 @@ import THEMUSEUMIcon from "./icons/THEMUSEUM";
 
 export default function ProfessionalJourney() {
     return (
-        <Grid2 container justifyContent="center" alignItems="center" rowSpacing={4} columnSpacing={8} sx={{ mt: 4, mb: 0.5 }}>
+        <Grid2 container justifyContent="center" alignItems="center" spacing={2} sx={{ mt: 4, mb: 0.5 }}>
             <Grid2 xs={12} md="auto">
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <Tooltip title="Datamatics Digital Ltd.">

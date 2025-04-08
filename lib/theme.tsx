@@ -88,6 +88,7 @@ const PortfolioThemeProvider: FC<PropsWithChildren> = props => {
             MuiAppBar: {
                 defaultProps: {
                     color: "transparent",
+                    position: "fixed",
                     elevation: 0,
                 },
                 styleOverrides: {

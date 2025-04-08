@@ -22,7 +22,7 @@ const PersonalModeExitIconButton: FC = () => {
                 title={
                     <Stack alignItems="center">
                         <Image
-                            src="/fb9aa87393ea093949ae640f0644f34c_9115808074601848149.png"
+                            src="/images/stickers/d334ccbc-7308-48ad-ae1a-b7befa36c307.png"
                             width={64}
                             height={64}
                             alt=""
