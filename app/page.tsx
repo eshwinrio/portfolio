@@ -80,7 +80,7 @@ export default function Home() {
                                 <Box component="small" color="text.secondary">Curious about my personal interests? Step into my world!</Box>
                             </StyledText>
                         </Paper>
-                        <Image src="/739b9901eddcb2b4a990e9ea4219b77a.gif" width={64} height={64} unoptimized alt="Fired up Mimo (HoyoLab Mascot)" />
+                        <Image src="/images/stickers/d3ec9594-ccb8-4462-810b-4a2ad4018244.gif" width={64} height={64} unoptimized alt="Ganyu on a coffee break" />
                         <PersonalSectionNavigator sx={{ backdropFilter: "blur(4px)" }} />
                     </Stack>
                 </Container>

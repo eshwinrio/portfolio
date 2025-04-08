@@ -1,3 +1,4 @@
+import imageMap from "@/lib/image-map";
 import ArticleIcon from "@mui/icons-material/Article";
 import Avatar from "@mui/material/Avatar";
 import Badge from "@mui/material/Badge";
@@ -26,11 +27,11 @@ export default function ProfileOverview() {
                         }>
                             <Avatar sx={{ aspectRatio: "1 / 1", width: { xs: 96, md: 124 }, height: "auto" }}>
                                 <Image
-                                    src="/20211225_172819-PFP.jpg"
-                                    alt="Portrait of Eshwin Rio Pinto"
+                                    src={imageMap.eshwin_rio_pfp.path}
+                                    alt={imageMap.eshwin_rio_pfp.alt}
                                     width={164} height={164}
                                     style={{ width: "100%", height: "100%" }}
-                                    aria-label="Portrait of Eshwin Rio Pinto"
+                                    aria-label={imageMap.eshwin_rio_pfp.alt}
                                 />
                             </Avatar>
                         </Badge>
