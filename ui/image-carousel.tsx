@@ -41,14 +41,17 @@ const ImageCarousel: FC<ImageCarouselProps> = ({
                     alt={image.alt || "Image carousel"}
                     objectFit="cover"
                     layout="fill"
+                    objectPosition="top"
                     priority={i === 0}
                     style={{
                         ...image.style,
                         display: "block",
                         position: "absolute",
                         borderRadius: "inherit",
+                        overflow: "hidden",
                         opacity: i === index ? 1 : 0,
-                        transition: transitions.create("opacity", {
+                        transform: i === index ? "scale(1)" : "scale(0.95)",
+                        transition: transitions.create(["opacity", "transform"], {
                             duration: transitions.duration.standard,
                             easing: transitions.easing.easeInOut,
                         }),
